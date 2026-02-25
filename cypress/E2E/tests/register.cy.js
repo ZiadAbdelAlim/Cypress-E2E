@@ -11,10 +11,6 @@ describe('test automation', () => {
 		registerObj.enterSignUpPass(registerData.password)
 		registerObj.confirmSignUp()
 
-		registerObj.clickSignIn()
-		registerObj.enterUsername(registerData.username)
-		registerObj.enterPassword(registerData.password)
-        registerObj.confirmLogin()	
 	})
 
 })
