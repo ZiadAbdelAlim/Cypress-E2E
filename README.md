@@ -129,4 +129,6 @@ Runs all tests in the terminal without opening the Cypress UI.
 
 ---
 
-**Happy Testing! 🚀**
+AI Usage Disclosure
+
+AI tools (ChatGPT) were used for guidance on Cypress best practices, debugging support, and documentation refinement. All test design decisions, implementation, and project structure were independently developed and fully understood.
