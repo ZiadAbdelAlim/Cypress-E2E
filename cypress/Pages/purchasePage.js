@@ -36,7 +36,7 @@ export class purchasePage {
             expect(text).to.equal('Product added.')
         })
 
-        cy.contains('a', 'Add to cart').click()
+        cy.contains('a', 'Add to cart').should('be.visible').click()
     }
 
     clickCart() {
