@@ -7,17 +7,14 @@ export class homePage {
         signInButton: '#login2',
         cartButton: '#cartur',
         homeButton: '#Home',
-        phones: 'a:has-text("Phones")',
-        laptops: 'a:has-text("Laptops")',
-        monitors: 'a:has-text("Monitors")',
         signUpUsername: '#sign-username',
         signUpPass: '#sign-password',
         signInUsername: '#loginusername',
         signInPass: '#loginpassword',
-        macBookPro: 'a:has-text("MacBook Pro")',
         confirmSignUp:'button:contains("Sign up")',
         cancelbutton: `button:contains("Close")`,
-        login: 'button:contains("Log in")'
+        login: 'button:contains("Log in")',
+        nameOfUser: '#nameofuser'
     
 
     }
@@ -35,11 +32,11 @@ export class homePage {
     }
 
     enterUsername(Name) {
-        cy.get(this.weblocators.signInUsername).should('be.visible').type(Name)
+        cy.get(this.weblocators.signInUsername).should('be.visible').clear().type(Name).should('have.value', Name)
     }
 
     enterPassword(Pass) {
-        cy.get(this.weblocators.signInPass).should('be.visible').type(Pass)
+        cy.get(this.weblocators.signInPass).should('be.visible').clear().type(Pass).should('have.value', Pass)
     }
 
     clickSignUp() {
@@ -76,5 +73,7 @@ export class homePage {
     confirmLogin() {
         cy.get(this.weblocators.login).click()
     }
-
+    verifyUserLoggedIn() {
+        cy.get(this.weblocators.nameOfUser).should('be.visible')
+    }
 }
