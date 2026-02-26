@@ -17,9 +17,10 @@ describe('Purchase Flow', () => {
 		loginObj.enterSignUpPass(registerData.password)
 		cy.on('window:alert', (text) => {
 			expect(text).to.contains('Sign up successful')
-			cy.wait(3000)
 		})
+
 		loginObj.confirmSignUp()
+		cy.wait(3000)
     })
 
 	it('should complete full purchase flow', () => {

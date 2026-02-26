@@ -15,11 +15,11 @@ describe('login Flow', () => {
         loginObj.clickSignUp()
         loginObj.enterSignUpUsername(uniqueUsername)
         loginObj.enterSignUpPass(registerData.password)
-        loginObj.confirmSignUp()
 
         cy.on('window:alert', (text) => {
             expect(text).to.contains('Sign up successful')
         })
+        loginObj.confirmSignUp()
         cy.wait(2000)
     })
 

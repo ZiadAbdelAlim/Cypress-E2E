@@ -11,11 +11,11 @@ export class homePage {
         signUpPass: '#sign-password',
         signInUsername: '#loginusername',
         signInPass: '#loginpassword',
-        confirmSignUp:'button:contains("Sign up")',
+        confirmSignUp: 'button:contains("Sign up")',
         cancelbutton: `button:contains("Close")`,
         login: 'button:contains("Log in")',
         nameOfUser: '#nameofuser'
-    
+
 
     }
 
@@ -23,11 +23,11 @@ export class homePage {
         cy.visit(Cypress.env('URL'))
     }
 
-    enterSignUpUsername(SName){
+    enterSignUpUsername(SName) {
         cy.get(this.weblocators.signUpUsername).should('be.visible').type(SName)
     }
 
-    enterSignUpPass(SPass){
+    enterSignUpPass(SPass) {
         cy.get(this.weblocators.signUpPass).should('be.visible').type(SPass)
     }
 
