@@ -181,6 +181,7 @@
     "yauzl": "^2.10.0"
   },
   "devDependencies": {
-    "cypress": "^15.10.0"
+    "cypress": "^15.10.0",
+    "eslint": "^10.2.0"
   }
 }

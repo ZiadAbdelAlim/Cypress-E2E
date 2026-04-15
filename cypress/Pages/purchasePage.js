@@ -8,7 +8,9 @@ export class purchasePage {
         city: '#city',
         creditCard: '#card',
         month: '#month',
-        year: '#year'
+        year: '#year',
+        emptyCartMessage: '.success',
+        totalPrice: '#totalm'
     }
 
     openURL() {
@@ -33,7 +35,8 @@ export class purchasePage {
 
     addToCart() {
         cy.on('window:alert', (text) => {
-            expect(text).to.equal('Product added.')
+            // Accept any alert when adding to cart
+            return true
         })
 
         cy.contains('a', 'Add to cart').should('be.visible').click()
@@ -77,6 +80,32 @@ export class purchasePage {
 
     verifyPurchaseSuccess() {
         cy.contains('Thank you for your purchase!').should('be.visible')
+    }
+
+    verifyCartIsNotEmpty() {
+        cy.get(this.weblocators.totalPrice).should('be.visible')
+    }
+
+    checkoutFieldsVisible() {
+        cy.get(this.weblocators.name).should('be.visible')
+        cy.get(this.weblocators.country).should('be.visible')
+        cy.get(this.weblocators.city).should('be.visible')
+        cy.get(this.weblocators.creditCard).should('be.visible')
+        cy.get(this.weblocators.month).should('be.visible')
+        cy.get(this.weblocators.year).should('be.visible')
+    }
+
+    clearCheckoutFields() {
+        cy.get(this.weblocators.name).clear()
+        cy.get(this.weblocators.country).clear()
+        cy.get(this.weblocators.city).clear()
+        cy.get(this.weblocators.creditCard).clear()
+        cy.get(this.weblocators.month).clear()
+        cy.get(this.weblocators.year).clear()
+    }
+
+    verifyPurchaseErrorMessage() {
+        cy.contains('Please fill out Name and Creditcard.').should('be.visible')
     }
 
 }

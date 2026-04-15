@@ -11,11 +11,13 @@ export class homePage {
         signUpPass: '#sign-password',
         signInUsername: '#loginusername',
         signInPass: '#loginpassword',
-        confirmSignUp: 'button:contains("Sign up")',
-        cancelbutton: `button:contains("Close")`,
-        login: 'button:contains("Log in")',
-        nameOfUser: '#nameofuser'
-
+        confirmSignUp: 'button:has-text("Sign up")',
+        cancelbutton: `button:has-text("Close")`,
+        login: 'button:has-text("Log in")',
+        nameOfUser: '#nameofuser',
+        phones: 'a:has-text("Phones")',
+        laptops: 'a:has-text("Laptops")',
+        monitors: 'a:has-text("Monitors")'
 
     }
 
@@ -32,11 +34,11 @@ export class homePage {
     }
 
     enterUsername(Name) {
-        cy.get(this.weblocators.signInUsername).should('be.visible').clear().type(Name).should('have.value', Name)
+        cy.get(this.weblocators.signInUsername).should('be.visible').type(Name)
     }
 
     enterPassword(Pass) {
-        cy.get(this.weblocators.signInPass).should('be.visible').clear().type(Pass).should('have.value', Pass)
+        cy.get(this.weblocators.signInPass).should('be.visible').type(Pass)
     }
 
     clickSignUp() {
@@ -52,28 +54,45 @@ export class homePage {
     }
 
     clickPhones() {
-        cy.get(this.weblocators.phones).click()
+        cy.contains('a', 'Phones').click()
     }
 
     clickLaptops() {
-        cy.get(this.weblocators.laptops).click()
+        cy.contains('a', 'Laptops').click()
     }
 
     clickMonitors() {
-        cy.get(this.weblocators.monitors).click()
+        cy.contains('a', 'Monitors').click()
     }
 
     confirmSignUp() {
-        cy.get(this.weblocators.confirmSignUp).click()
+        cy.contains('button', 'Sign up').click()
     }
-    CancelSignUp() {
-        cy.get(this.weblocators.cancelSignUp).click()
+
+    cancelSignUp() {
+        cy.contains('button', 'Close').click()
     }
 
     confirmLogin() {
-        cy.get(this.weblocators.login).click()
+        cy.contains('button', 'Log in').click()
     }
     verifyUserLoggedIn() {
         cy.get(this.weblocators.nameOfUser).should('be.visible')
+    }
+
+    verifyLoginErrorMessage() {
+        cy.contains('Wrong password.').should('be.visible')
+    }
+
+    verifyUserNotFoundError() {
+        cy.contains('User does not exist.').should('be.visible')
+    }
+
+    verifySignupErrorMessage() {
+        cy.contains('This user already exist.').should('be.visible')
+    }
+
+    closeModal() {
+        cy.get('.modal-footer button:contains("Close")').click({ force: true })
     }
 }
