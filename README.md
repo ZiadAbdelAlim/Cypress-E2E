@@ -22,9 +22,12 @@ This repository demonstrates best practices in test automation by covering the e
 
 ✅ User registration  
 ✅ User login  
+✅ Product browsing across all categories  
 ✅ Product selection  
 ✅ Add product to cart  
+✅ Cart management (remove items, multi-item cart)  
 ✅ Complete purchase  
+✅ Contact form submission  
 
 ---
 
@@ -34,10 +37,11 @@ This repository demonstrates best practices in test automation by covering the e
 
 For an e-commerce platform, the most critical aspects tested are:
 
-- **Authentication** - User registration and login functionality
-- **Product Browsing** - Browsing and selecting products
-- **Cart Management** - Adding products to the shopping cart
-- **Checkout Process** - Completing the purchase successfully
+- **Authentication** - User registration and login (positive & negative flows)
+- **Product Browsing** - Browsing Phones, Laptops, and Monitors categories; product detail pages
+- **Cart Management** - Adding products, removing items, multi-item cart verification
+- **Checkout Process** - Full purchase flow, required-field validation, missing-field alerts
+- **Contact Form** - Form submission with and without authentication
 
 ---
 
@@ -131,4 +135,9 @@ Runs all tests in the terminal without opening the Cypress UI.
 
 ## 🤖 AI Usage Disclosure
 
-AI tools (ChatGPT) were used for guidance on syntax debugging support and documentation refinement. All test design decisions, implementation, and project structure were independently developed and fully understood.
+AI tools were used during the development of this project:
+
+- **ChatGPT** — guidance on syntax, debugging support, and documentation refinement
+- **Claude (Anthropic)** — assisted with test coverage analysis, generating additional test cases (cart management, contact form, product navigation), and expanding page object models
+
+All test design decisions, implementation choices, and project structure were independently reviewed and fully understood.
