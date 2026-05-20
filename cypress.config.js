@@ -1,13 +1,15 @@
-const { defineConfig } = require("cypress");
+const { defineConfig } = require('cypress')
 
 module.exports = defineConfig({
   e2e: {
-    specPattern: "cypress/E2E/tests/**/*.cy.js",
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
+    baseUrl: 'https://www.demoblaze.com',
+    specPattern: 'cypress/E2E/**/*.cy.js',
+    defaultCommandTimeout: 12000,
+    retries: { runMode: 2, openMode: 0 },
+    viewportWidth: 1280,
+    viewportHeight: 720,
+    video: false,
+    screenshotOnRunFailure: true,
+    setupNodeEvents(on, config) {},
   },
-  env: {
-    URL: "https://www.demoblaze.com/"
-  }
-});
+})
